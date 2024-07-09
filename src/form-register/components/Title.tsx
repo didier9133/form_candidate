@@ -11,7 +11,7 @@ export const Title = () => {
         completa el formulario
       </Typography>
 
-      <Typography color="primary" variant="h3">
+      <Typography sx={{ mb: 2 }} color="primary" variant="h3">
         y seamos parte del futuro juntos.
       </Typography>
     </>

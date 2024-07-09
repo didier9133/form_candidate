@@ -2,10 +2,10 @@
 
 import { Autocomplete, SxProps, TextField, Theme, Typography } from "@mui/material";
 import { FieldError, Merge, FieldErrorsImpl, Controller, Control } from "react-hook-form";
-import { IUseHookFormRegister, OptionsProposalJob } from "../interfaces";
+import { IUseHookFormRegister, NameTypes, OptionsProposalJob } from "../interfaces";
 
 type IAutocompleteMaterial = {
-  name: string;
+  name: NameTypes;
   options: OptionsProposalJob[];
   sx?: SxProps<Theme> | undefined;
   error: boolean;

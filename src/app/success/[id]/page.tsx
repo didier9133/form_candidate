@@ -1,8 +1,7 @@
 import { isSuccessFormRegister } from "@/actions/actions-offers";
 import { Message } from "@/components";
 import Image from "next/image";
-import { redirect } from "next/navigation";
-
+import { notFound } from "next/navigation";
 interface Props {
   params: {
     id: string;
@@ -12,7 +11,10 @@ interface Props {
 export default async function SuccessPage(props: Props) {
   const { params } = props;
   const isHaveRegister = await isSuccessFormRegister(params.id);
-  if (!isHaveRegister.success) redirect("/");
+
+  if (!isHaveRegister.success) {
+    return notFound();
+  }
 
   const messageSuccess = {
     title: "¡Gracias,",
@@ -20,10 +22,5 @@ export default async function SuccessPage(props: Props) {
     name: isHaveRegister?.data?.name || "",
     image: <Image width={250} height={250} src="/welcome.svg" alt="success image" />,
   };
-
-  return (
-    <main className="flex min-h-screen max-w flex-col items-center justify-center p-2 md:p-22">
-      <Message {...messageSuccess} />
-    </main>
-  );
+  return <Message {...messageSuccess} />;
 }

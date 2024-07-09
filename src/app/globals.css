@@ -3,11 +3,44 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: #969eaf
+  --foreground-rgb: #969eaf;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(245, 247, 251)
+  background: rgb(245, 247, 251);
 }
 
+.str-video__participant-details {
+  color: white;
+}
+
+.str-video__menu-container {
+  color: white;
+}
+
+.str-video__notification {
+  color: white;
+}
+
+.str-chat__channel {
+  width: 30%;
+}
+.str-chat__thread {
+  width: 45%;
+}
+
+.str-chat__header-livestream {
+  border-bottom: 1px solid #969eaf;
+  margin-bottom: 10px;
+}
+
+.str-video {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.str-chat__main-panel {
+  border: 1px solid #969eaf;
+}

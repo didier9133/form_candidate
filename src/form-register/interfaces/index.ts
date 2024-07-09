@@ -1,5 +1,4 @@
 import { SxProps, Theme } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
 import { FieldError, FieldErrorsImpl, FieldValues, Merge, UseFormRegister } from "react-hook-form";
 
 export interface InputInterfaceProps {
@@ -15,7 +14,16 @@ export interface InputInterfaceProps {
   rows?: number;
 }
 
-export type NameTypes = "name" | "lastname" | "mail" | "phone" | "about";
+export type NameTypes =
+  | "name"
+  | "lastname"
+  | "mail"
+  | "phone"
+  | "about"
+  | "proposalJob"
+  | "country"
+  | "file_cv"
+  | "profile";
 
 export interface InputMaterialProps {
   register: UseFormRegister<IUseHookFormRegister>;
@@ -61,7 +69,6 @@ export interface IObjConfigurationAutocompleteProposal {
 }
 
 export type IUseHookFormRegister = {
-  [x: string]: any;
   proposalJob: null | OptionsProposalJob;
   country: null | DefaultValuesCountry;
   phone: string;

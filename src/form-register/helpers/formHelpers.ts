@@ -10,9 +10,9 @@ interface InputConfigInterfaceProps {
 
 const buildPayloadToSendForm = ({ data }: IBuildPayloadToSend) => {
   let payload = {};
-  Object.entries(objToPayload).map(([key, value]: [keyof IUseHookFormRegister, string]) => {
-    if (data[key]) {
-      let valueOfPayload = data[key];
+  Object.entries(objToPayload).map(([key, value]) => {
+    if (data[key as KeysObjToPayload]) {
+      let valueOfPayload = data[key as KeysObjToPayload];
       if (key === "phone") {
         valueOfPayload = `+${data.country?.phone}${data.phone}`;
       }

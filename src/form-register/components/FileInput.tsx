@@ -36,7 +36,7 @@ export const FileInput = ({
               <CloudUploadIcon color="secondary" />
             </InputAdornment>
 
-            <InputAdornment position="end">
+            <InputAdornment sx={{ justifyContent: "flex-start" }} position="end">
               <Typography
                 sx={{ width: "auto" }}
                 id="labelInputFile"

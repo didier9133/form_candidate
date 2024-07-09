@@ -1,5 +1,8 @@
 "use server";
 
+import { currentUser } from "@clerk/nextjs/server";
+import { StreamClient } from "@stream-io/node-sdk";
+
 const countriesArray = [
   { code: "AD", label: "Andorra", phone: "376" },
   {
@@ -484,4 +487,21 @@ export async function isSuccessFormRegister(id: string) {
       data: {},
     };
   }
+}
+
+export async function getTokenStream(userId?: string) {
+  const tokenStream = process.env.STREAM_VIDEO_API_SECRET;
+  const apiKeyStream = process.env.NEXT_PUBLIC_STREAM_VIDEO_API_KEY;
+
+  if (!tokenStream || !apiKeyStream) throw new Error("Token or API key not set");
+
+  const user = await currentUser();
+  // if (!user) throw new Error("User not found");
+  const id = user?.id || userId;
+  const streamClient = new StreamClient(apiKeyStream, tokenStream);
+  const expireTime = Math.floor(Date.now() / 1000) + 3600;
+  const issuedAt = Math.floor(Date.now() / 1000) - 60;
+  const token = streamClient.createToken(id!, expireTime, issuedAt);
+
+  return token;
 }

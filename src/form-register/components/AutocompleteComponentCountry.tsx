@@ -3,10 +3,10 @@
 import { Autocomplete, SxProps, TextField, Theme, Typography } from "@mui/material";
 import { FieldError, Merge, FieldErrorsImpl, Controller, Control } from "react-hook-form";
 import { ElementRenderOptionCountry } from ".";
-import { DefaultValuesCountry, IUseHookFormRegister } from "../interfaces";
+import { DefaultValuesCountry, IUseHookFormRegister, NameTypes } from "../interfaces";
 
 type IAutocompleteMaterial = {
-  name: string;
+  name: NameTypes;
   options: DefaultValuesCountry[];
   sx?: SxProps<Theme> | undefined;
   error: boolean;

@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Navbar } from "@/components";
 import { Provider } from "@/provider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import "stream-chat-react/css/v2/index.css";
+import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,12 +21,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <AppRouterCacheProvider>
-          <Provider>{children}</Provider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <AppRouterCacheProvider>
+            <Provider>
+              <Navbar />
+              <main
+                className="flex max-w-5xl  flex-col items-center justify-center my-0 mx-auto md:p-22"
+                style={{ minHeight: "calc(100vh - 3.5rem)" }}>
+                {children}
+              </main>
+            </Provider>
+          </AppRouterCacheProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
