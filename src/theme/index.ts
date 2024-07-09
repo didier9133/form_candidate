@@ -69,6 +69,7 @@ const theme = createTheme({
             width: "100%",
             margin: "16.5px 14px",
             height: "23px",
+            justifyContent: "flex-end",
           }),
         }),
       },
@@ -77,13 +78,26 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: ({ ownerState }) => ({
+          ...(ownerState.variant === "body2" && {
+            "@media (max-width:600px)": {
+              maxWidth: "300px",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+            },
+          }),
+
+          ...(ownerState.variant === "body1" && {
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
+            overflow: "hidden",
+            maxWidth: "600px",
+          }),
+
           ...(ownerState.variant === "body1" &&
             ownerState.id === "labelInputFile" && {
               color: "#3e8ea2",
               cursor: "pointer",
-              whiteSpace: "nowrap",
-              textOverflow: "ellipsis",
-              overflow: "hidden",
               maxWidth: "200px",
             }),
         }),

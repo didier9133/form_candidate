@@ -17,8 +17,8 @@ export default async function ViewResgister() {
   };
   return (
     <div className="z-10 w-full max-w-5xl items-center flex-col">
-      <Title />
       <Card>
+        <Title />
         <Form defaultValue={countryDefaultValue} objConfigurationAutocomplete={objConfigurationAutocomplete} />
       </Card>
     </div>
