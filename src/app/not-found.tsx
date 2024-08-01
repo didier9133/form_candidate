@@ -22,7 +22,7 @@ export default function NotFound() {
                 href="/"
                 className="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-[#006AFF] rounded-lg shrink-0 sm:w-auto hover:bg-[rgb(0, 74, 178)] ">
                 {" "}
-                <span>Inicio</span>
+                <span>Home</span>
               </Link>
             </div>
           </div>
