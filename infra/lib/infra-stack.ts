@@ -12,21 +12,21 @@ export class InfraStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const amplifyApp = new App(this, "344 gestores", {
-      appName: "Nextjs hosting example",
+    const amplifyApp = new App(this, "gestores", {
+      appName: "344 project",
       sourceCodeProvider: new GitHubSourceCodeProvider({
         owner: "",
         repository: "",
-        oauthToken: SecretValue.secretsManager(""),
+        oauthToken: SecretValue.secretsManager("github-token-cdk"),
       }),
       autoBranchDeletion: true,
       platform: Platform.WEB_COMPUTE,
       environmentVariables: {
-        NEXT_PUBLIC_BASE_URL:"http://localhost:3000",
-        NEXT_PUBLIC_STREAM_VIDEO_API_KEY:"kcfdtxuvg56j",
-        STREAM_VIDEO_API_SECRET:"qykmvezya8ef98yjc7dyknx3w4cx72nuqk4gvrvm2q6jdz5dr39sjvcesrd77kn3",
-        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:"pk_test_bmF0aXZlLWNvYnJhLTc5LmNsZXJrLmFjY291bnRzLmRldiQ",
-        CLERK_SECRET_KEY:"sk_test_nsQ2MajRVFfxSPk5jXw4ZVzht72uR9exqKdNHkO5z0"
+        NEXT_PUBLIC_BASE_URL:"",
+        NEXT_PUBLIC_STREAM_VIDEO_API_KEY:"",
+        STREAM_VIDEO_API_SECRET:"",
+        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:"",
+        CLERK_SECRET_KEY:""
       },
       customRules: [
         {
