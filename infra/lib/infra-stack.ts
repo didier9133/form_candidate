@@ -15,8 +15,8 @@ export class InfraStack extends Stack {
     const amplifyApp = new App(this, "gestores", {
       appName: "344 project",
       sourceCodeProvider: new GitHubSourceCodeProvider({
-        owner: "",
-        repository: "",
+        owner: "didier9133",
+        repository: "form_candidate",
         oauthToken: SecretValue.secretsManager("github-token-cdk"),
       }),
       autoBranchDeletion: true,
