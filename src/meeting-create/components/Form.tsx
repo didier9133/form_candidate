@@ -63,8 +63,8 @@ export const Form = () => {
 
 const LinkMeeting = ({ id }: ILinkMeetingProps) => {
   const path = `/room/${id}`;
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}${path}`;
-
+  const host =`${window.location.protocol}//${window.location.host}`
+  const url = `${host}${path}`;
   return (
     <Card
       style={{
